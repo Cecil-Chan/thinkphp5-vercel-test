@@ -1,0 +1,94 @@
+{include file="../application/publicmodel/view/HeaderModel.html"}
+<!-- Demo styles -->
+<style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img
+                src="https://static.simpledesktops.com/uploads/desktops/2017/06/02/bg-wallpaper.png" alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://www.gamewallpapers.com/wallpapers_slechte_compressie/wallpaper_avatar_frontiers_of_pandora_02_1920x1080.jpg"
+                alt=""></div>
+        <div class="swiper-slide">
+            <img src="https://www.gamewallpapers.com/wallpapers_slechte_compressie/wallpaper_eternal_strands_01_1920x1080.jpg" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="https://www.gamewallpapers.com/wallpapers_slechte_compressie/01wallpapers/wallpaper_last_epoch_01_1920x1080.jpg" alt="">
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<table class="layui-table">
+    <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>昵称</th>
+            <th>加入时间</th>
+            <th>签名</th>
+            <th>地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        {volist name="result" id="user"}
+        <tr>
+            <td>{$user.id}</td>
+            <td>{$user.username}</td>
+            <td>{$user.password}</td>
+            <td>{$user.address}</td>
+        </tr>
+        {/volist}
+    </tbody>
+</table>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+{include file="../application/publicmodel/view/FooterModel.html"}
